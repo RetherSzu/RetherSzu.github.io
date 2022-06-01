@@ -1,0 +1,105 @@
+body {
+    position: relative;
+	display: flex;
+	flex-direction: column;
+    height: 100vh;
+    margin: 0 45px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    flex: 1;
+    max-width: 960px;
+    width: 960px;
+    margin: auto;
+}
+
+#container {
+    height: 100%;
+}
+
+.avatar {
+    width: 256px;
+    height: 256px;
+    max-width: 256px;
+    max-height: 256px;
+}
+
+.avatar img {
+    border-radius: 500px;
+    max-width: 256px;
+    max-height: 256px;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.list-view {
+    display: flex;
+    border: 1px solid #000
+}
+
+
+.card-list {
+    width: 800px;
+    margin: 0 calc((100% - 800px) /2);
+}
+
+.author-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.author-header .author-image {
+    width: 64px;
+    height: 64px;
+}
+
+.author-header a {
+    position: relative;
+    color: #000;
+    border-radius: 10px;
+    margin: 0 .5rem;
+    background-color: #afafaf;
+    padding: .25rem;
+}
+
+/* .author-header a::before {
+    position: absolute;
+    content: "";
+    right: 0;
+    width: 0;
+    bottom: -5px;
+    background: #000;
+    height: 2px;
+    transition-property: width;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.author-header a:hover::before,
+.author-header a:focus::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+} */
+
+.author-info {
+    margin: 0 1rem;
+}
+
+.author-categories {
+    position: absolute;
+    right: 0;
+}

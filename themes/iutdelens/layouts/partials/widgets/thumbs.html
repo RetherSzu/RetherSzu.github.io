@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-image">
+        <figure class="image is-4by3">
+            <a href="{{.Permalink}}">
+                {{ with .Params.images }}
+                    <img src="{{ index . 0 }}" alt="">
+                {{ end }}
+            </a>
+        </figure>
+    </div>
+    <div class="card-content">
+        <div class="media">
+            <p class="title is-4">{{ .Title }}</p>
+        </div>
+        <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus nec iaculis mauris.
+        </div>
+        <time datetime="2016-1-1">{{ .PublishDate.Format "January 2, 2006" }}</time>
+        <div class="tags" style="margin-top: 1.5rem;">
+            {{ range $idx, $category := .Params.categories }}  {{- if ne $idx 0 }} {{ end }}<a href="{{ "categories/" | relURL }}{{ $category | urlize }}" class="tag is-link">  {{ $category }}</a>{{- end }}
+        </div>
+    </div>
+</div>

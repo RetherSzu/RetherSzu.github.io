@@ -1,0 +1,34 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'E-portfolio'
+theme='iutdelens'
+paginate = 3
+
+[[menu.main]]
+    name = "À propos"
+    url = "/about"
+
+[[menu.main]]
+    name = "Blog"
+    url = "/blog"
+
+[[menu.main]]
+    name = "Catégories"
+    url = "/categories"
+
+[[menu.social]]
+    name = "GitHub"
+    url = "https://github.com/RetherSzu"
+    pre = "<i class='fab fa-github'></i>"
+
+[[menu.footer]]     
+    name = "À propos"
+    url = "/about"
+
+[params]
+    author="Bourgain Wilbal Nicolas"
+    authorImage = "/images/nikolabo.png"
+
+[[resources]]
+    src = 'document/cv.pdf'
+    title = 'Photo Specifications'

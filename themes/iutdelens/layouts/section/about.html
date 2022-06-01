@@ -1,0 +1,28 @@
+{{ define "main" }}
+<main>
+    <div class="section">
+        <div class="media is-justify-content-center is-align-items-center is-flex-direction-column">
+            <div style="margin-bottom: 1rem;">
+                {{ with .Site.Params.authorImage }}
+                    <div class="image avatar">
+                        <img src="{{ . }}" />
+                    </div>
+                {{ end }}
+            </div>
+            <div class="media is-justify-content-center is-align-items-center is-flex-direction-column">
+                <p class="title is-2">{{ .Site.Params.Author }}</p>
+                <p class="subtitle is-4" style="margin-top: 0;">Étudiant en informatique</p>
+            </div>
+            <ul class="downloads">
+                {{ with .Resources.Match "document/" }}
+                    <div class="container">
+                        {{ range . }}
+                            <img src="{{ .RelPermalink }}">
+                        {{ end }}
+                    </div>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</main>
+{{ end }}

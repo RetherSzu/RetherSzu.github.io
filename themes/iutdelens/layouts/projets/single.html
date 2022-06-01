@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="section" style="max-width: 960px; margin: 0 auto">
+    <div class="columns is-align-items-center">
+        {{ with .Site.Params.authorImage }}
+        <div class="media-left image is-64x64 avatar">
+            <img src="{{ . }}" style="width: 64px; height: 64px" />
+        </div>
+        {{ end }}
+        <div>
+            <p>Créé par <strong>{{ .Site.Params.Author }}</strong>
+            le {{ .PublishDate.Format "2 January 2006" }}</p>
+            <p>{{ .ReadingTime }} {{ if eq .ReadingTime 1 }} min {{ else }} mins {{ end }} de lecture</p>
+        </div>
+        <div class="column">
+            <div class="tags is-justify-content-end">
+                {{ range $idx, $category := .Params.categories }}  {{- if ne $idx 0 }} {{ end }}<a href="{{ "categories/" | relURL }}{{ $category | urlize }}" class="tag is-link">  {{ $category }}</a>{{- end }}
+            </div>
+        </div>
+    </div>
+    <article>
+        <div class="columns is-centered">
+            <div class="column max-800px">
+                <h1 class="title is-1">{{ .Title }}</h1>
+                <div class="content">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+{{ end }}
