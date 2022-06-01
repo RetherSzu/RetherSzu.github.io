@@ -5,7 +5,7 @@ name: Publication
 # Déterminer les événements sur lesquels déclencher le job de CI
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
 
 # Un workflow de CI est composé de 1 ou plusieurs jobs lancés de manière séquentielle ou parallèle
