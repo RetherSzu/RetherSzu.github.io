@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://retherszu.github.io/nBW.github.io/'
 languageCode = 'en-us'
 title = 'E-portfolio'
 theme='iutdelens'
