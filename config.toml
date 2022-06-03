@@ -1,7 +1,7 @@
-baseURL = 'https://retherszu.github.io/'
+baseURL = '/'
 languageCode = 'en-us'
 title = 'E-portfolio'
-theme='iutdelens'
+theme= 'iutdelens'
 paginate = 3
 
 [[menu.main]]
