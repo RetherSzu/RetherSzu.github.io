@@ -27,7 +27,7 @@ paginate = 3
 
 [params]
     author="Bourgain Wilbal Nicolas"
-    authorImage = "/images/nikolabo.png"
+    authorImage = "/nBW.github.io/images/nikolabo.png"
 
 [[resources]]
     src = 'document/cv.pdf'
