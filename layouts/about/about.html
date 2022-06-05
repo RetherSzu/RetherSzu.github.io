@@ -1,0 +1,57 @@
+{{ define "main" }}
+<main>
+    <section class="section" style="max-width: 960px; margin: 0 auto">
+        <div class="media is-justify-content-center is-align-items-center is-flex-direction-column">
+            <div style="margin-bottom: 1rem;">
+                {{ with .Site.Params.authorImage }}
+                    <div class="image avatar">
+                        <img src="{{ . }}" />
+                    </div>
+                {{ end }}
+            </div>
+            <div class="media is-justify-content-center is-align-items-center is-flex-direction-column">
+                <p class="title is-2">{{ .Site.Params.Author }}</p>
+                <p class="subtitle is-4" style="margin-top: 0;">Étudiant en informatique</p>
+            </div>
+
+        </div>
+        <div class="section has-text-justified">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis a eaque amet est perferendis dolorem voluptatum tenetur ab exercitationem quidem ducimus rerum minima voluptate veniam quis, vitae esse consectetur alias.
+            Laudantium, quibusdam facilis? Eveniet ipsum minus perferendis sequi reprehenderit non saepe maxime illo quam? Ipsum sit dolorum fugit dicta. Placeat iste beatae unde repudiandae veniam, esse modi provident cupiditate necessitatibus.
+            Est fugit, exercitationem omnis hic nisi dolore eligendi odit voluptatum provident doloremque fuga dicta sint recusandae corporis minus expedita voluptas molestias! Aliquid dolorem eum, perferendis ad obcaecati ut minima iste.
+            Voluptates pariatur voluptatem laborum a iste, nobis ducimus quos, aperiam eligendi error architecto laudantium cupiditate illo adipisci aliquam, provident magnam sed fuga. Quisquam minus quis dolor praesentium dicta incidunt soluta.
+            Exercitationem eligendi suscipit recusandae tempore eius assumenda harum est ut iste ullam sit officia nesciunt veritatis soluta itaque, quae ipsam. Officia consequuntur officiis, recusandae consequatur ipsa dolorem! Est, sapiente corporis.
+            Reiciendis delectus saepe sit similique illo rem magni eaque? Porro maxime dolor nesciunt modi amet architecto sunt corrupti animi, deserunt sed harum officiis, aliquam quaerat, nam odit. Esse, perferendis laudantium?
+            Quisquam sapiente quam fugiat doloremque dolore. Officia accusamus tempore omnis hic ipsam recusandae, sit inventore nesciunt tempora natus corrupti ad labore nobis, quam laudantium quasi deleniti ducimus veritatis veniam iure?
+            Perferendis consectetur perspiciatis dicta fugiat quo saepe amet, tempore odit blanditiis omnis, porro maxime nam nulla? Minima quae praesentium laboriosam quibusdam, est consectetur reiciendis ipsum unde minus sequi? Repellendus, necessitatibus!
+            Voluptates, quibusdam odit dolores doloribus officiis perspiciatis corrupti possimus doloremque, eius accusamus officia rem, eveniet laudantium laboriosam similique adipisci deserunt iusto nam necessitatibus minus eaque maxime quasi dicta illo. Rerum.
+            Rerum amet odio iste at? Numquam minus labore modi accusamus quo rem odit voluptas expedita commodi! Sunt corrupti voluptatum in architecto quo repellat, porro, quisquam blanditiis suscipit, laudantium quas vero!</p>
+        </div>
+        <article class="panel is-info">
+            <p class="panel-heading">
+                Fichier utile
+            </p>
+            <a class="panel-block is-active js-modal-trigger" data-target="modal-js-example">
+                <span class="panel-icon">
+                    <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                CV.pdf
+            </a>
+        </article>
+        <article>
+            <div id="modal-js-example" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+                        <img src="/about/cv.png">
+                    </div>
+                    <a class="button is-link" href="/about/cv.pdf" download="cv.pdf" style="margin-top: 1rem">
+                        Télécharger mon CV
+                    </a>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+        </article>
+    </section>
+</main>
+{{ end }}

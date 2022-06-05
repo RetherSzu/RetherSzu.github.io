@@ -1,8 +1,8 @@
 {{ define "main" }}
 <section class="section" style="max-width: 960px; margin: 0 auto">
-    <div class="columns is-align-items-center">
+    <div class="is-flex is-flex-wrap-wrap is-align-items-center">
         {{ with .Site.Params.authorImage }}
-        <div class="media-left image is-64x64 avatar">
+        <div class="media-left image is-64x64">
             <img src="{{ . }}" style="width: 64px; height: 64px; border-radius: 50px;" />
         </div>
         {{ end }}

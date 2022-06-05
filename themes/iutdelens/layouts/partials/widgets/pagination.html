@@ -2,6 +2,11 @@
 {{ if gt $pag.TotalPages 1 }}
 <nav aria-label="Page navigation">
     <ul class="pagination">
+        {{ if ne $pag.PageNumber 1 }}
+        <li class="page-item"><a href="{{ $pag.First.URL }}" class="pagination-link"><<</a></li>
+        {{ else }}
+        <li class="page-item"><a class="pagination-link" disabled><<</a></li>
+        {{ end }}
         {{ if $pag.HasPrev }}
         <li class="page-item"><a href="{{ $pag.Prev.URL }}" rel="prev" class="pagination-previous">Previous</a></li>
         {{ end }}
@@ -12,9 +17,13 @@
         <li class="page-item"><a href="{{ .URL }}" class="pagination-link">{{ .PageNumber }}</a></li>
         {{ end }}
         {{ end }}
-
         {{ if $pag.HasNext }}
         <li class="page-item"><a href="{{ $pag.Next.URL }}" rel="next" class="pagination-next">Next page</a></li>
+        {{ end }}
+        {{ if ne $pag.PageNumber $pag.TotalPages }}
+        <li class="page-item"><a href="{{ $pag.Last.URL }}" class="pagination-link">>></a></li>
+        {{ else }}
+        <li class="page-item"><a class="pagination-link" disabled>>></a></li>
         {{ end }}
     </ul>
 </nav>

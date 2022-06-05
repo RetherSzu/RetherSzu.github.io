@@ -15,11 +15,13 @@ body {
     flex: 1;
     max-width: 960px;
     width: 960px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 #container {
-    height: 100%;
+    /* min-height: 100%; */
+    /* min-height: calc(100vh - 52px - 144px); */
+    /* height: calc(100% - 144px); */
 }
 
 .avatar {

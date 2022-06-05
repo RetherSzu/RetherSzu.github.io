@@ -3,7 +3,8 @@
         <figure class="image is-4by3">
             <a href="{{.Permalink}}">
                 {{ with .Params.images }}
-                    <img src="{{ index . 0 }}" alt="">
+                {{ $imgName := index . 0 }}
+                <img src="{{ index . 0 }}" alt="">
                 {{ end }}
             </a>
         </figure>

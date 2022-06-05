@@ -5,9 +5,9 @@
         <h1>Catégories: {{ .Title }}</h1>
         {{ .Content }}
     </div>
-    <div class="columns is-justify-content-center is-align-content-center">
+    <div class="columns is-justify-content-center is-align-items-center">
         {{ range .Paginator.Pages }}
-        <div class="column" style="max-width: 500px;">
+        <div class="column" style="max-width: 500px; margin: auto;">
             {{ partial "widgets/thumbs.html" . }}
         </div>
         {{ end }}
