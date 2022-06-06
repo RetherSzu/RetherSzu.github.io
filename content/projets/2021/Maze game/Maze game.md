@@ -11,4 +11,4 @@ images: ["/projets/2021/Maze game/images/mazeGame.png"]
 
 ## Description
 
-Ce jeux était mon projet de fin d'année en terminal.
+Ce jeu était mon projet de fin d’année en terminale.
