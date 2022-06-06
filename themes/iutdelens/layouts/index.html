@@ -2,7 +2,38 @@
 <main>
     <div class="section">
         <div class="content">
-                
+            <h1 class="is-size-2">Dernier projets</h1>
+            <div class="is-flex-direction-row is-justify-content-center is-align-items-center">
+                {{ range .Paginator.Pages }}
+                <div class="column">
+                    <div class="card is-flex">
+                        <div class="card-image">
+                            <div class="image">
+                                <a href="{{.Permalink}}">
+                                    {{ with .Params.images }}
+                                    {{ $imgName := index . 0 }}
+                                    <img src="{{ index . 0 }}" alt="">
+                                    {{ end }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <p class="title is-4">{{ .Title }}</p>
+                            </div>
+                            <div class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.
+                            </div>
+                            <time datetime="2016-1-1">{{ .PublishDate.Format "January 2, 2006" }}</time>
+                            <div class="tags" style="margin-top: 1.5rem;">
+                                {{ range $idx, $category := .Params.categories }}  {{- if ne $idx 0 }} {{ end }}<a href="{{ "categories/" | relURL }}{{ $category | urlize }}" class="tag is-link">  {{ $category }}</a>{{- end }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
         </div>
     </div>
 </main>

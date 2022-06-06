@@ -1,13 +1,13 @@
 <div class="card">
     <div class="card-image">
-        <figure class="image is-4by3">
+        <div class="image is-4by3">
             <a href="{{.Permalink}}">
                 {{ with .Params.images }}
                 {{ $imgName := index . 0 }}
                 <img src="{{ index . 0 }}" alt="">
                 {{ end }}
             </a>
-        </figure>
+        </div>
     </div>
     <div class="card-content">
         <div class="media">
