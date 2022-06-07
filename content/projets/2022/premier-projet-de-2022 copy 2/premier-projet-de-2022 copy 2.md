@@ -2,7 +2,7 @@
 title: "Premier Projet De 2022 copy 2"
 date: 2022-05-06T14:51:32+02:00
 draft: false
-categories : ["Projet", "Développement web", "Python"]
+categories : ["Développement web", "Python"]
 images : ["/images/categorie-projet.jpg"]
 files : [["../cv.pdf", "cv.pdf"]]
 ---

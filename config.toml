@@ -9,8 +9,8 @@ paginate = 3
     url = "/about"
 
 [[menu.main]]
-    name = "Blog"
-    url = "/blog"
+    name = "Projets"
+    url = "/projets"
 
 [[menu.main]]
     name = "Catégories"
