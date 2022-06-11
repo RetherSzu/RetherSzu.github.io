@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+<link rel="stylesheet" href="/css/style.css" />
+<script src="/js/modal.js"></script><body class="is-mobile"><header class="main-header">
+    <nav class="navbar" role="navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="/" title="home" class="navbar-item">
+                    <span class="title"><h1>E-portfolio</h1></span>
+                </a>
+                
+                <a href="https://github.com/RetherSzu" class="navbar-item is-hidden-desktop" title="GitHub"><span
+                        class="icon"><i class='fab fa-github'></i></span></a>
+                
+                <a href="https://gitlab.univ-artois.fr/nicolas_bourgainwilbal" class="navbar-item is-hidden-desktop" title="Gitlab"><span
+                        class="icon"><i class='fa-brands fa-gitlab'></i></span></a>
+                
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    
+                    <a href="/categories" class="navbar-item">Catégories</a>
+                    
+                    <a href="/projets" class="navbar-item">Projets</a>
+                    
+                    <a href="/about" class="navbar-item">À propos</a>
+                    
+                </div>
+                <div class="navbar-end">
+                    
+                    <a href="https://github.com/RetherSzu" class="navbar-item is-hidden-touch" title="GitHub"><span
+                            class="icon"><i class='fab fa-github'></i></span></a>
+                    
+                    <a href="https://gitlab.univ-artois.fr/nicolas_bourgainwilbal" class="navbar-item is-hidden-touch" title="Gitlab"><span
+                            class="icon"><i class='fa-brands fa-gitlab'></i></span></a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-burger").click(function () {
+                $(".navbar-burger").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+            })
+        })
+    </script>
+</header>
+<div id="container">
+<main>
+    <section class="section" style="max-width: 960px; margin: 0 auto">
+        <div class="media is-justify-content-center is-align-items-center is-flex-direction-column">
+            <div style="margin-bottom: 1rem;">
+                
+                    <div class="image avatar">
+                        <img src="/images/nikolabo.png" />
+                    </div>
+                
+            </div>
+            <div class="media is-justify-content-center is-align-items-center is-flex-direction-column">
+                <p class="title is-2">Bourgain Wilbal Nicolas</p>
+                <p class="subtitle is-4" style="margin-top: 0;">Étudiant en informatique</p>
+            </div>
+
+        </div>
+        <div class="section has-text-justified">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis a eaque amet est perferendis dolorem voluptatum tenetur ab exercitationem quidem ducimus rerum minima voluptate veniam quis, vitae esse consectetur alias.
+            Laudantium, quibusdam facilis? Eveniet ipsum minus perferendis sequi reprehenderit non saepe maxime illo quam? Ipsum sit dolorum fugit dicta. Placeat iste beatae unde repudiandae veniam, esse modi provident cupiditate necessitatibus.
+            Est fugit, exercitationem omnis hic nisi dolore eligendi odit voluptatum provident doloremque fuga dicta sint recusandae corporis minus expedita voluptas molestias! Aliquid dolorem eum, perferendis ad obcaecati ut minima iste.
+            Voluptates pariatur voluptatem laborum a iste, nobis ducimus quos, aperiam eligendi error architecto laudantium cupiditate illo adipisci aliquam, provident magnam sed fuga. Quisquam minus quis dolor praesentium dicta incidunt soluta.
+            Exercitationem eligendi suscipit recusandae tempore eius assumenda harum est ut iste ullam sit officia nesciunt veritatis soluta itaque, quae ipsam. Officia consequuntur officiis, recusandae consequatur ipsa dolorem! Est, sapiente corporis.
+            Reiciendis delectus saepe sit similique illo rem magni eaque? Porro maxime dolor nesciunt modi amet architecto sunt corrupti animi, deserunt sed harum officiis, aliquam quaerat, nam odit. Esse, perferendis laudantium?
+            Quisquam sapiente quam fugiat doloremque dolore. Officia accusamus tempore omnis hic ipsam recusandae, sit inventore nesciunt tempora natus corrupti ad labore nobis, quam laudantium quasi deleniti ducimus veritatis veniam iure?
+            Perferendis consectetur perspiciatis dicta fugiat quo saepe amet, tempore odit blanditiis omnis, porro maxime nam nulla? Minima quae praesentium laboriosam quibusdam, est consectetur reiciendis ipsum unde minus sequi? Repellendus, necessitatibus!
+            Voluptates, quibusdam odit dolores doloribus officiis perspiciatis corrupti possimus doloremque, eius accusamus officia rem, eveniet laudantium laboriosam similique adipisci deserunt iusto nam necessitatibus minus eaque maxime quasi dicta illo. Rerum.
+            Rerum amet odio iste at? Numquam minus labore modi accusamus quo rem odit voluptas expedita commodi! Sunt corrupti voluptatum in architecto quo repellat, porro, quisquam blanditiis suscipit, laudantium quas vero!</p>
+        </div>
+        <article class="panel is-info">
+            <p class="panel-heading">
+                Fichier utile
+            </p>
+            <a class="panel-block is-active js-modal-trigger" data-target="modal-js-example">
+                <span class="panel-icon">
+                    <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                CV.pdf
+            </a>
+        </article>
+        <article>
+            <div id="modal-js-example" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+                        <img src="/about/cv.png">
+                    </div>
+                    <a class="button is-link" href="/about/cv.pdf" download="cv.pdf" style="margin-top: 1rem">
+                        Télécharger mon CV
+                    </a>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+        </article>
+    </section>
+</main>
+
+        </div><footer class="footer">
+    <div class="container">
+        <div class="columns has-text-centered">
+        </div>
+    </div>
+    
+        <a href="/about" class="">À propos</a>
+    
+</footer>
+</body>
+</html>

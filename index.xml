@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>E-portfolio</title>
+    <link>https://retherszu.github.io/</link>
+    <description>Recent content on E-portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Jun 2022 18:53:00 +0200</lastBuildDate><atom:link href="https://retherszu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Maze Game</title>
+      <link>https://retherszu.github.io/projets/2021/maze-game/maze-game/</link>
+      <pubDate>Fri, 03 Jun 2022 18:53:00 +0200</pubDate>
+      
+      <guid>https://retherszu.github.io/projets/2021/maze-game/maze-game/</guid>
+      <description>Description Ce jeu était mon projet de fin d’année en terminale.</description>
+    </item>
+    
+    <item>
+      <title>Premier Projet De 2022</title>
+      <link>https://retherszu.github.io/projets/2022/premier-projet-de-2022-copy/</link>
+      <pubDate>Fri, 06 May 2022 14:51:32 +0200</pubDate>
+      
+      <guid>https://retherszu.github.io/projets/2022/premier-projet-de-2022-copy/</guid>
+      <description>Nouveau projet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula vitae justo tincidunt bibendum. Donec ut consequat nisi, a pharetra leo. In cursus lacus eget sem facilisis, luctus molestie risus lacinia. Fusce et malesuada purus. Curabitur aliquet nisl sed egestas aliquam. Mauris iaculis ultricies tortor, et porta turpis. Donec a varius lectus, quis condimentum enim. Nulla facilisi. Cras vel mauris sit amet purus dapibus porta sed ac nisi.</description>
+    </item>
+    
+    <item>
+      <title>Premier Projet De 2022</title>
+      <link>https://retherszu.github.io/projets/2022/premier-projet-de-2022/</link>
+      <pubDate>Fri, 06 May 2022 14:51:32 +0200</pubDate>
+      
+      <guid>https://retherszu.github.io/projets/2022/premier-projet-de-2022/</guid>
+      <description>Nouveau projet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula vitae justo tincidunt bibendum. Donec ut consequat nisi, a pharetra leo. In cursus lacus eget sem facilisis, luctus molestie risus lacinia. Fusce et malesuada purus. Curabitur aliquet nisl sed egestas aliquam. Mauris iaculis ultricies tortor, et porta turpis. Donec a varius lectus, quis condimentum enim. Nulla facilisi. Cras vel mauris sit amet purus dapibus porta sed ac nisi.</description>
+    </item>
+    
+    <item>
+      <title>Premier Projet De 2022 copy 2</title>
+      <link>https://retherszu.github.io/projets/2022/premier-projet-de-2022-copy-2/premier-projet-de-2022-copy-2/</link>
+      <pubDate>Fri, 06 May 2022 14:51:32 +0200</pubDate>
+      
+      <guid>https://retherszu.github.io/projets/2022/premier-projet-de-2022-copy-2/premier-projet-de-2022-copy-2/</guid>
+      <description>Nouveau projet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula vitae justo tincidunt bibendum. Donec ut consequat nisi, a pharetra leo. In cursus lacus eget sem facilisis, luctus molestie risus lacinia. Fusce et malesuada purus. Curabitur aliquet nisl sed egestas aliquam. Mauris iaculis ultricies tortor, et porta turpis. Donec a varius lectus, quis condimentum enim. Nulla facilisi. Cras vel mauris sit amet purus dapibus porta sed ac nisi.</description>
+    </item>
+    
+    <item>
+      <title>Second Article</title>
+      <link>https://retherszu.github.io/blog/second-article/</link>
+      <pubDate>Fri, 29 Apr 2022 15:32:19 +0200</pubDate>
+      
+      <guid>https://retherszu.github.io/blog/second-article/</guid>
+      <description>Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6 simple text
+&amp;lt;div class=&amp;#34;main-header&amp;#34;&amp;gt;  Je suis le header &amp;lt;/div&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Article</title>
+      <link>https://retherszu.github.io/blog/article/</link>
+      <pubDate>Fri, 29 Apr 2022 15:22:47 +0200</pubDate>
+      
+      <guid>https://retherszu.github.io/blog/article/</guid>
+      <description>Mon premier article zebi : Mon premier article zebi : Mon premier article zebi : Mon premier article zebi : Mon premier article zebi : Mon premier article zebi : cd coucou import </description>
+    </item>
+    
+  </channel>
+</rss>

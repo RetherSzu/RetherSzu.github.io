@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on E-portfolio</title>
+    <link>https://retherszu.github.io/categories/python/</link>
+    <description>Recent content in Python on E-portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Jun 2022 18:53:00 +0200</lastBuildDate><atom:link href="https://retherszu.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Maze Game</title>
+      <link>https://retherszu.github.io/projets/2021/maze-game/maze-game/</link>
+      <pubDate>Fri, 03 Jun 2022 18:53:00 +0200</pubDate>
+      
+      <guid>https://retherszu.github.io/projets/2021/maze-game/maze-game/</guid>
+      <description>Description Ce jeu était mon projet de fin d’année en terminale.</description>
+    </item>
+    
+    <item>
+      <title>Premier Projet De 2022 copy 2</title>
+      <link>https://retherszu.github.io/projets/2022/premier-projet-de-2022-copy-2/premier-projet-de-2022-copy-2/</link>
+      <pubDate>Fri, 06 May 2022 14:51:32 +0200</pubDate>
+      
+      <guid>https://retherszu.github.io/projets/2022/premier-projet-de-2022-copy-2/premier-projet-de-2022-copy-2/</guid>
+      <description>Nouveau projet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula vitae justo tincidunt bibendum. Donec ut consequat nisi, a pharetra leo. In cursus lacus eget sem facilisis, luctus molestie risus lacinia. Fusce et malesuada purus. Curabitur aliquet nisl sed egestas aliquam. Mauris iaculis ultricies tortor, et porta turpis. Donec a varius lectus, quis condimentum enim. Nulla facilisi. Cras vel mauris sit amet purus dapibus porta sed ac nisi.</description>
+    </item>
+    
+  </channel>
+</rss>
