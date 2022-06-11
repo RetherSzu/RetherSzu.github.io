@@ -5,6 +5,7 @@ draft: false
 categories : ["Développement web", "Python"]
 images : ["/images/categorie-projet.jpg"]
 files : [["../cv.pdf", "cv.pdf"]]
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris."
 ---
 
 ## Nouveau projet

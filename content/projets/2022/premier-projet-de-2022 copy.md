@@ -4,6 +4,7 @@ date: 2022-05-06T14:51:32+02:00
 draft: false
 categories : ["Développement web"]
 images : ["/images/categorie-projet.jpg"]
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris."
 ---
 
 ## Nouveau projet

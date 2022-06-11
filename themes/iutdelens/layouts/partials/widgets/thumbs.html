@@ -14,8 +14,7 @@
             <p class="title is-4">{{ .Title }}</p>
         </div>
         <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris.
+            {{ .Page.Params.description }}
         </div>
         <time datetime="2016-1-1">{{ .PublishDate.Format "January 2, 2006" }}</time>
         <div class="tags" style="margin-top: 1.5rem;">

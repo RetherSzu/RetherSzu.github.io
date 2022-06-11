@@ -4,6 +4,7 @@ date: 2022-04-29T15:32:19+02:00
 draft: false
 categories : ["Développement web"]
 images : ["/images/default-placeholder.png"]
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris."
 ---
 
 

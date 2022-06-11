@@ -21,6 +21,11 @@ paginate = 3
     url = "https://github.com/RetherSzu"
     pre = "<i class='fab fa-github'></i>"
 
+[[menu.social]]
+    name = "Gitlab"
+    url = "https://gitlab.univ-artois.fr/nicolas_bourgainwilbal"
+    pre = "<i class='fa-brands fa-gitlab'></i>"
+
 [[menu.footer]]     
     name = "À propos"
     url = "/about"
