@@ -49,6 +49,11 @@ layout: page
 
     <div class="post-content">
       <p>
+        {% if post.image.path %}
+        <a href="{{ post.image.path}}" class="popup img-link w-50 left">
+          <img src="{{ post.image.path}}" data-src="{{ post.image.path}}" alt="Desktop View" class=" lazyloaded" data-proofer-ignore="" width="972" height="589">
+        </a>
+        {% endif %}
         {% include no-linenos.html content=post.content %}
         {{ content | markdownify | strip_html | truncate: 200 | escape }}
       </p>
