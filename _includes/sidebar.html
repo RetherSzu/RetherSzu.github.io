@@ -67,19 +67,12 @@
       {% capture url %}
         {%- if entry.type == 'github' -%}
           https://github.com/{{ site.github.username }}
-        {%- elsif entry.type == 'twitter' -%}
-          https://twitter.com/{{ site.twitter.username }}
-        {%- elsif entry.type == 'email' -%}
-          {% assign email = site.social.email | split: '@' %}
-          javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
-        {%- elsif entry.type == 'rss' -%}
-          {{ "/feed.xml" | relative_url }}
         {%- else -%}
           {{ entry.url }}
         {%- endif -%}
       {% endcapture %}
 
-      {% if url %}
+      {% if entry.type == 'github' %}
       <a href="{{ url }}" aria-label="{{ entry.type }}"
         {% assign link_types = nil %}
         {% unless entry.noblank %}
