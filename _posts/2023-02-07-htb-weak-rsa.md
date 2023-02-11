@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hackt The Box > Weak RSA
+title: Hack The Box - Weak RSA
 date: '2023-02-07 23:10:36 +0100'
 image:
   path: /assets/img/posts/weak-rsa/weak-rsa.png

