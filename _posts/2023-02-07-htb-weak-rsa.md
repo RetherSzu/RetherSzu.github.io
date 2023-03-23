@@ -6,16 +6,26 @@ image:
   path: /assets/img/posts/weak-rsa/weak-rsa.png
   alt: Weak RSA card
 categories: [HackTheBox, Beginner Track]
-tags: [Hack-The-Box-Easy]
+tags: [Hack-The-Box-Easy, rsa]
 ---
+
+```
+CHALLENGE DESCRIPTION : Can you decrypt the message and get the flag?
+FILE : 2 files (flag.enc, key.pub)
+```
+
+## Tools used
+
+  - [RsaCtfTool](https://github.com/RsaCtfTool/RsaCtfTool)
+  - [Openssl](https://www.openssl.org)
 
 
 ```bash
 0bytes> ./RsaCtfTool.py --publickey ./key.pub --private
 -----BEGIN RSA PRIVATE KEY-----
-...
+[...]
 tSQPCPf7ygoUKh1KYeqXMpTmhKjRos3xioTy23CZuOl3WIsLiRKSVYyqBc9d8rxj
-...
+[...]
 -----END RSA PRIVATE KEY-----
 ```
 

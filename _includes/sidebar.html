@@ -74,17 +74,19 @@
 
       {% if entry.type == 'github' %}
       <a href="{{ url }}" aria-label="{{ entry.type }}"
-        {% assign link_types = nil %}
+        {% assign link_types = '' %}
+
         {% unless entry.noblank %}
-          {% assign link_types = link_types | append: " noopener" %}
           target="_blank"
+          {% assign link_types = 'noopener noreferrer' %}
         {% endunless %}
 
         {% if entry.type == 'mastodon' %}
-          {% assign link_types = link_types | append: " me" %}
+          {% assign link_types = link_types | append: ' me' | strip %}
         {% endif %}
 
-        {% if link_types %}rel="{{ link_types | lstrip }}"{% endif %}>
+        {% unless link_types == empty %}rel="{{ link_types }}"{% endunless %}>
+
         <i class="{{ entry.icon }}"></i>
       </a>
       {% endif %}

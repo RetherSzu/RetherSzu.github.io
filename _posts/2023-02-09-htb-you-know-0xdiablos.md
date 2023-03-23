@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Hack The Box - You know 0xDiablos'
-date: '2023-02-10 10:48:44 +0100'
+date: '2023-02-10 10:48 +0100'
 image:
   path: /assets/img/posts/you-know-0xdiablos/you-know-0xdiablos.png
   alt: You know 0xDiablos - card
@@ -9,11 +9,13 @@ categories: [HackTheBox, Beginner Track]
 tags: [Hack-The-Box-Easy, buffer-overflow]
 ---
 
+
 ```
 CHALLENGE DESCRIPTION : I missed my flag
 HOST : 178.62.24.63:31507
 FILE : 1 file (vuln)
 ```
+
 
 ## Tools used
 
@@ -30,6 +32,7 @@ FILE : 1 file (vuln)
   - Next, we will determine what type of file `vuln` is, what it does and what it contains.
   - Then we'll find a loophole and exploit it.
 
+
 ## Connect to the server with `netcat`
 
 So, to connect to the server, run the following command :
@@ -40,6 +43,7 @@ You know who are 0xDiablos:
 test
 test
 ```
+
 
 ## Vuln file
 
@@ -74,6 +78,7 @@ To find out more about the vuln program, we need to analyze its code to understa
 
 When you create a new project and add the vuln file to it. We see three main functions (main, vuln, flag):
 
+
 #### main function
 
 ```cpp
@@ -90,6 +95,7 @@ undefined4 main(void)
 }
 ```
 
+
 #### vuln function
 
 ```cpp
@@ -103,6 +109,7 @@ void vuln(void)
 	return;
 }
 ```
+
 
 #### flag function
 
@@ -125,6 +132,7 @@ void flag(int param_1,int param_2)
 }
 ```
 
+
 ### Understand vuln file
 
 Now we can understand how program works. The `main` function call `vuln` function.
@@ -141,6 +149,7 @@ undefined4 main(void)
 Then the vuln method wait for a input with `gets()` and output the message we just in with `puts()`.
 The gets method is [susceptible to suffer from buffer overflow attacks](https://www.geeksforgeeks.org/gets-is-risky-to-use/).
 To create buffer overflow you need to highlight it.
+
 
 ## Buffer overflow
 
@@ -245,7 +254,7 @@ Stopped reason: SIGSEGV
 0x41417741 in ?? ()
 ```
 
-The EIP register containt "0x41417741 ('AwAA')" with te nex command we can get this offset :
+The EIP register containt "0x41417741 ('AwAA')" with the next command we can get this offset :
 
 ```bash
 gdb-peda$ pattern_offset 0x41417741
@@ -337,4 +346,4 @@ HTB{...}
  - `nc` : allows to open network connections locally on the machine, followed by the host address and the port.
 {: .prompt-info }
 
-![Desktop View](/assets/img/posts/you-know-0xdiablos/you-know-0xdiablos-pwned.png){: width="972" height="589" }
+![Card of pwned you know 0xdiablos](/assets/img/posts/you-know-0xdiablos/you-know-0xdiablos-pwned.png){: width="972" height="589" }
