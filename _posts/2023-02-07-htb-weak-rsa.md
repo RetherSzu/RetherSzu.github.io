@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Hack The Box - Weak RSA
-date: '2023-02-07 23:10:36 +0100'
+date: "2023-02-07 23:10:36 +0100"
 image:
-  path: /assets/img/posts/weak-rsa/weak-rsa.png
+  path: /assets/img/posts/weak-rsa/weak-rsa-card.png
   alt: Weak RSA card
 categories: [HackTheBox, Beginner Track]
 tags: [Hack-The-Box-Easy, rsa]
@@ -16,12 +16,11 @@ FILE : 2 files (flag.enc, key.pub)
 
 ## Tools used
 
-  - [RsaCtfTool](https://github.com/RsaCtfTool/RsaCtfTool)
-  - [Openssl](https://www.openssl.org)
-
+- [RsaCtfTool](https://github.com/RsaCtfTool/RsaCtfTool)
+- [Openssl](https://www.openssl.org)
 
 ```bash
-0bytes> ./RsaCtfTool.py --publickey ./key.pub --private
+rether> ./RsaCtfTool.py --publickey ./key.pub --private
 -----BEGIN RSA PRIVATE KEY-----
 [...]
 tSQPCPf7ygoUKh1KYeqXMpTmhKjRos3xioTy23CZuOl3WIsLiRKSVYyqBc9d8rxj
@@ -35,8 +34,7 @@ tSQPCPf7ygoUKh1KYeqXMpTmhKjRos3xioTy23CZuOl3WIsLiRKSVYyqBc9d8rxj
  - `--private` : display private rsa key if recovered
 {: .prompt-info }
 
-
-Copy RSA private key in a new file and decrypt message `flag.enc` with openssl 
+Copy RSA private key in a new file and decrypt message `flag.enc` with openssl
 
 ```bash
 openssl pkeyutl -in flag.enc -out output.txt -decrypt -inkey key.priv
@@ -54,6 +52,9 @@ openssl pkeyutl -in flag.enc -out output.txt -decrypt -inkey key.priv
 And then display the contents of the `output.txt` file.
 
 ```bash
-cat output.txt 
-HTB{...}
+┌──(rether㉿rether)-[~/]
+└─$ cat output.txt
+[htb-flag]
 ```
+
+![Card of pwned weak rsa](/assets/img/posts/weak-rsa/weak-rsa-pwned.png){: width="972" height="589" }

