@@ -2,6 +2,7 @@
 layout: post
 title: htb mailroom
 date: 2023-04-23 11:07 +0200
+hidden: true
 ---
 
 ## Nmap scan

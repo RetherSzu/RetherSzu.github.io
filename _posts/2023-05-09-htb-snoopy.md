@@ -2,6 +2,7 @@
 layout: post
 title: htb snoopy
 date: 2023-05-09 22:26 +0200
+hidden: true
 ---
 
 ```bash

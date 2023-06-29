@@ -7,6 +7,7 @@ image:
   alt: Meta two card
 categories: [HackTheBox]
 tags: [Hack-The-Box-Easy]
+hidden: false
 ---
 
 ```

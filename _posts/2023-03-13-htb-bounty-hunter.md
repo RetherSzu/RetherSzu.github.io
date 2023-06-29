@@ -7,6 +7,7 @@ image:
   alt: Bounty Hunter card
 categories: [HackTheBox, CREST-CRT]
 tags: [Hack-The-Box-Easy]
+hidden: false
 ---
 
 ```

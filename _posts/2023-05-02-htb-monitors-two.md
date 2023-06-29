@@ -5,6 +5,7 @@ image:
   path: /assets/img/posts/monitors-two/monitors-two-card.png
   alt: Monitors-Two card
 date: 2023-05-02 09:22 +0200
+hidden: true
 ---
 
 ```

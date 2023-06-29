@@ -7,6 +7,7 @@ image:
   alt: You know 0xDiablos - card
 categories: [HackTheBox, Beginner Track]
 tags: [Hack-The-Box-Easy, buffer-overflow]
+hidden: false
 ---
 
 ```

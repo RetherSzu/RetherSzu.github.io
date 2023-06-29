@@ -7,6 +7,7 @@ image:
   alt: Stocker card
 categories: [HackTheBox]
 tags: [Hack-The-Box-Easy]
+hidden: false
 ---
 
 ```

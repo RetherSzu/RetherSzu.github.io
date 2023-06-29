@@ -7,6 +7,7 @@ image:
   alt: Under construction card
 categories: [HackTheBox, Beginner Track]
 tags: [Hack-The-Box-Easy, jwt-key-confusion]
+hidden: false
 ---
 
 

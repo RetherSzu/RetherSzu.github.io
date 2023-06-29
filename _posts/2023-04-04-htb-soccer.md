@@ -4,6 +4,7 @@ title: htb soccer
 date: 2023-04-04 23:01 +0200
 categories: [HackTheBox]
 tags: [Hack-The-Box-Easy]
+hidden: true
 ---
 
 ```
