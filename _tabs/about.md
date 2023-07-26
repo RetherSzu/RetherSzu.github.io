@@ -20,6 +20,8 @@ order: 4
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="52" width="52" alt="python logo"  />
 </div>
 
+![Javascript logo](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg){: width="52" height="52" .normal}
+![Desktop View](/assets/img/posts/bounty-hunter/bounty-hunter-bounty-report-system.png){: width="972" height="589" .w-75 .normal}
 
 <h3 align="left">Testing</h3>
 <div align="left">
