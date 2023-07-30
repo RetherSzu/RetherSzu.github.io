@@ -348,7 +348,8 @@ i {
 
 .post-preview {
   @extend %rounded;
-
+  
+  align-items: center;
   border: 0;
   background: var(--card-bg);
   box-shadow: var(--card-shadow);
