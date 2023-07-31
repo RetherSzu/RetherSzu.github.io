@@ -2,16 +2,9 @@
 # -------------------------------------
 # {author_id}:
 #   name: {full name}
-#   twitter: {twitter_of_author}
 #   url: {homepage_of_author}
 # -------------------------------------
 
-cotes:
-  name: Cotes Chung
-  twitter: cotes2020
-  url: https://github.com/cotes2020/
-
-sille_bille:
-  name: Dinesh Prasanth Moluguwan Krishnamoorthy
-  twitter: dinesh_MKD
-  url: https://github.com/SilleBille/
+rether:
+  name: RetherSzu
+  url: https://github.com/RetherSzu/
