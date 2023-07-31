@@ -1,3 +1,3 @@
 <div align="center">
-  # Rether szu
+  Rether szu
 </div>
