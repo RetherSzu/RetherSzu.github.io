@@ -1,17 +1,10 @@
 #  Sharing options at the bottom of the post.
 #  Icons from <https://fontawesome.com/>
 
-<<<<<<< HEAD
 # platforms:
 #   - type: Twitter
 #     icon: "fab fa-twitter"
 #     link: "https://twitter.com/intent/tweet?text=TITLE&url=URL"
-=======
-platforms:
-  - type: Twitter
-    icon: "fa-brands fa-square-x-twitter"
-    link: "https://twitter.com/intent/tweet?text=TITLE&url=URL"
->>>>>>> 4a2b89d0b698d672486349131a89025fa47afcb6
 
 #   - type: Facebook
 #     icon: "fab fa-facebook-square"

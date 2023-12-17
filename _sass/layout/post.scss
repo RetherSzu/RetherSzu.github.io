@@ -14,7 +14,6 @@
   padding-right: $pr;
 }
 
-<<<<<<< HEAD
 %text-color {
   color: var(--text-color);
 }
@@ -38,8 +37,6 @@
   }
 }
 
-=======
->>>>>>> 4a2b89d0b698d672486349131a89025fa47afcb6
 h1 + .post-meta {
   > span + span::before {
     @include dot;
