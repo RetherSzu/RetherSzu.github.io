@@ -33,7 +33,7 @@ PORT     STATE SERVICE VERSION
 |_  256 0b:a4:c0:cf:e2:3b:95:ae:f6:f5:df:7d:0c:88:d6:ce (ED25519)
 80/tcp   open  http    Apache httpd 2.4.52
 |_http-server-header: Apache/2.4.52 (Ubuntu)
-|_http-title: Did not follow redirect to http://codify.htb/
+|_http-title: Did not follow redirect to https://codify.htb/
 3000/tcp open  http    Node.js Express framework
 |_http-title: Codify
 Service Info: Host: codify.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
@@ -52,7 +52,7 @@ Codify is a web application designed for easy testing of Node.js code. It allows
 
 !["Codify about us page"](/assets/img/posts/codify/codify-about-us.png "Codify about us page")
 
-Looking at the [about-us](http://codify.htb/about) page, we can see that the [vm2](https://github.com/patriksimek/vm2) library is used for the editor
+Looking at the [about-us](https://codify.htb/about) page, we can see that the [vm2](https://github.com/patriksimek/vm2) library is used for the editor
 
 Reading the README file in the github repository, we see that librarie has been deprecated.
 
