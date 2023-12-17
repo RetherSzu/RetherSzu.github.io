@@ -3,17 +3,18 @@
 # Import the theme
 theme: jekyll-theme-chirpy
 
-# Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
-# and doesn't have a custom domain.
-baseurl: ""
-
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
 lang: en
 
+<<<<<<< HEAD
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
 timezone: Europe/Paris
+=======
+# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
+timezone: Asia/Shanghai
+>>>>>>> 4a2b89d0b698d672486349131a89025fa47afcb6
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
@@ -25,8 +26,14 @@ tagline: Dev | CTF   # it will display as the sub-title
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
 
+<<<<<<< HEAD
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://RetherSzu.github.io'
+=======
+# Fill in the protocol & hostname for your site.
+# e.g. 'https://username.github.io', note that it does not end with a '/'.
+url: ""
+>>>>>>> 4a2b89d0b698d672486349131a89025fa47afcb6
 
 github:
   username: RetherSzu             # change to your github username
@@ -110,6 +117,9 @@ pwa:
 
 paginate: 10
 
+# The base URL of your site
+baseurl: ""
+
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
@@ -173,12 +183,11 @@ compress_html:
 exclude:
   - "*.gem"
   - "*.gemspec"
+  - docs
   - tools
   - README.md
-  - CHANGELOG.md
   - LICENSE
   - rollup.config.js
-  - node_modules
   - package*.json
 
 jekyll-archives:
