@@ -132,7 +132,7 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 ```
 
-Using these credentials, we can try to establish an ssh connection. And get the use flag
+Using these credentials, we can try to establish an ssh connection. And get the user flag
 
 ```bash
 ┌──(rether㉿rether)

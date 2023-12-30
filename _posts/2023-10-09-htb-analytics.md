@@ -3,8 +3,8 @@ layout: post
 title: Hack The Box - Analytics
 date: 2023-10-09 22:43 +0200
 image:
-    path: /assets/img/posts/analytics/analytics-card.png
-    alt: Analytics card
+  path: /assets/img/posts/analytics/analytics-card.png
+  alt: Analytics card
 categories: [HackTheBox]
 tags: [Hack-The-Box-Easy]
 ---
@@ -123,7 +123,7 @@ metalytics@analytics:~$ cat user.txt
 
 Now we are in.
 
-## Root priviliege 94856
+## Root priviliege
 
 ```bash
 uname -a
