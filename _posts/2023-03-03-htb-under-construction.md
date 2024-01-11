@@ -10,24 +10,20 @@ tags: [Hack-The-Box-Easy, jwt-key-confusion]
 hidden: false
 ---
 
-
 ```
 CHALLENGE DESCRIPTION : A company that specialises in web development is creating a new site that is currently under construction. Can you obtain the flag?
 HOST : 188.166.150.33:32674
 FILE : 1 zip folder (Under Construction)
 ```
 
-
 ## Tools used
 
 - [jwt io](https://jwt.io/) : allows you to decode, verify and generate JWT.
 - [JWT tool](https://github.com/ticarpi/jwt_tool/tree/master) : jwt_tool is a toolkit for validating, forging, scanning and tampering JWTs (JSON Web Tokens).
 
-
 ## What to do ?
 
 - First, we'll scan the given port with `nmap` to see what service is running on that port.
-
 
 ## Nmap scan
 
@@ -87,12 +83,12 @@ rether> ./jwt_tool.py [jwt token] -I -pc username -pv "admin' AND '1'='1' UNION 
 
 > Command explained :
 
- - `-I` : inject new claims and update existing claims with new values
- - `-pc` : payload key
- - `-pv` : payload value (sql injection)
- - `-X` : eXploit known vulnerabilities
- - `-pk` : public key
-{: .prompt-info }
+- `-I` : inject new claims and update existing claims with new values
+- `-pc` : payload key
+- `-pv` : payload value (sql injection)
+- `-X` : eXploit known vulnerabilities
+- `-pk` : public key
+  {: .prompt-info }
 
 And we use `burpsuite` to intercept the request and change the token
 

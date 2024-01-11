@@ -14,29 +14,6 @@
   padding-right: $pr;
 }
 
-%text-color {
-  color: var(--text-color);
-}
-
-.preview-img {
-  overflow: hidden;
-
-  @extend %rounded;
-
-  &:not(.no-bg) {
-    img.lazyloaded {
-      background: var(--img-bg);
-    }
-  }
-
-  img {
-    -o-object-fit: cover;
-    object-fit: cover;
-
-    @extend %rounded;
-  }
-}
-
 h1 + .post-meta {
   > span + span::before {
     @include dot;
