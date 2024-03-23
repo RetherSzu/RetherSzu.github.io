@@ -5,7 +5,7 @@ date: 2023-04-11 10:30 +0200
 image:
   path: /assets/img/posts/meta-two/meta-two-card.png
   alt: Meta two card
-categories: [HackTheBox]
+categories: [Hack The Box]
 tags: [Hack-The-Box-Easy]
 hidden: false
 ---

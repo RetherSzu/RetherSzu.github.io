@@ -5,7 +5,7 @@ date: 2023-09-07 19:58 +0200
 image:
     path: /assets/img/posts/questionnaire/questionnaire-card.png
     alt: You know 0xDiablos - card
-categories: [HackTheBox, CA 2023 Track]
+categories: [Hack The Box, CA 2023 Track]
 tags: [Hack-The-Box-Very-Easy, buffer-overflow]
 ---
 

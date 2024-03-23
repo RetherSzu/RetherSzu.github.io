@@ -5,7 +5,7 @@ date: "2023-02-14 22:21:19 +0100"
 image:
   path: /assets/img/posts/netmon/netmon-card.png
   alt: Netmon card
-categories: [HackTheBox, Beginner Track]
+categories: [Hack The Box, Beginner Track]
 tags: [Hack-The-Box-Easy, rsa]
 hidden: false
 ---
@@ -223,4 +223,4 @@ C:\Users\Administrator\Desktop> type root.txt
 [root-flag]
 ```
 
-![Card of pwned netmon](/assets/img/posts/jerry/jerry-pwned.png){: width="972" height="589" }
+![Card of pwned netmon](/assets/img/posts/netmon/netmon-pwned.png){: width="972" height="589" }

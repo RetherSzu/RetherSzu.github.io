@@ -5,7 +5,7 @@ date: 2023-12-16 17:40 +0100
 image:
     path: /assets/img/posts/codify/codify-card.png
     alt: Codify card
-categories: [HackTheBox]
+categories: [Hack The Box]
 tags: [Hack-The-Box-Easy, pattern-matching]
 ---
 

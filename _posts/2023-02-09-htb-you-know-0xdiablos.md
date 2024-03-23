@@ -5,7 +5,7 @@ date: "2023-02-10 10:48 +0100"
 image:
   path: /assets/img/posts/you-know-0xdiablos/you-know-0xdiablos-card.png
   alt: You know 0xDiablos - card
-categories: [HackTheBox, Beginner Track]
+categories: [Hack The Box, Beginner Track]
 tags: [Hack-The-Box-Easy, buffer-overflow]
 hidden: false
 ---

@@ -6,7 +6,6 @@ image:
   alt: Monitors-Two card
 date: 2023-05-02 09:22 +0200
 tags: [Hack-The-Box-Easy]
-hidden: true
 ---
 
 ```

@@ -5,7 +5,7 @@ date: 2023-10-09 22:43 +0200
 image:
   path: /assets/img/posts/analytics/analytics-card.png
   alt: Analytics card
-categories: [HackTheBox]
+categories: [Hack The Box]
 tags: [Hack-The-Box-Easy]
 ---
 

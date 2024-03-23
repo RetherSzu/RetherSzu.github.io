@@ -314,7 +314,7 @@ sup {
 /* --- post --- */
 
 .preview-img {
-  aspect-ratio: 40 / 21;
+  //aspect-ratio: 40 / 21;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -340,7 +340,7 @@ sup {
 
 .post-preview {
   @extend %rounded;
-  
+
   align-items: center;
   border: 0;
   background: var(--card-bg);

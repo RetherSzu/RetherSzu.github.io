@@ -5,7 +5,7 @@ date: 2023-09-03 11:29 +0200
 image:
     path: /assets/img/posts/cozy-hosting/cozy-hosting-card.png
     alt: Cozy hosting card
-categories: [HackTheBox]
+categories: [Hack The Box]
 tags: [Hack-The-Box-Easy, SSRF, OS command injection]
 ---
 

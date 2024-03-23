@@ -5,7 +5,7 @@ date: 2023-08-01 22:02 +0200
 image:
     path: /assets/img/posts/pilgrimage/pilgrimage-card.png
     alt: Pilgrimage card
-categories: [HackTheBox]
+categories: [Hack The Box]
 tags: [Hack-The-Box-Easy, Remote Arbitrary Leak, Remote Command Execution]
 ---
 

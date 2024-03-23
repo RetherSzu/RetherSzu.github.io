@@ -5,7 +5,7 @@ date: 2023-03-28 23:16 +0200
 image:
   path: /assets/img/posts/stocker/stocker-card.png
   alt: Stocker card
-categories: [HackTheBox]
+categories: [Hack The Box]
 tags: [Hack-The-Box-Easy]
 hidden: false
 ---

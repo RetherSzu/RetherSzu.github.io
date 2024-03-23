@@ -5,7 +5,7 @@ date: 2023-03-03 20:26 +0100
 image:
   path: /assets/img/posts/under-construction/under-construction-card.png
   alt: Under construction card
-categories: [HackTheBox, Beginner Track]
+categories: [Hack The Box, Beginner Track]
 tags: [Hack-The-Box-Easy, jwt-key-confusion]
 hidden: false
 ---

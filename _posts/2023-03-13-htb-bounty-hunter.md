@@ -5,7 +5,7 @@ date: 2023-03-13 20:22 +0100
 image:
   path: /assets/img/posts/bounty-hunter/bounty-hunter-card.png
   alt: Bounty Hunter card
-categories: [HackTheBox, CREST-CRT]
+categories: [Hack The Box, CREST-CRT]
 tags: [Hack-The-Box-Easy]
 hidden: false
 ---

@@ -5,7 +5,7 @@ date: "2023-02-07 23:10:36 +0100"
 image:
   path: /assets/img/posts/weak-rsa/weak-rsa-card.png
   alt: Weak RSA card
-categories: [HackTheBox, Beginner Track]
+categories: [Hack The Box, Beginner Track]
 tags: [Hack-The-Box-Easy, rsa]
 hidden: false
 ---
