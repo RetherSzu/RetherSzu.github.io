@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hack The Box questionnaire
+title: Hack The Box - questionnaire
 date: 2023-09-07 19:58 +0200
 image:
     path: /assets/img/posts/questionnaire/questionnaire-card.png
