@@ -1,0 +1,9 @@
+---
+layout: plain
+title: "Last Projects"
+permalink: /last-projects.html
+---
+
+{% for post in site.posts limit:3 %}
+ - [{{ post.title }}]({{ post.url }})({{ post.date | date: "%Y-%m-%d" }})
+{% endfor %}
